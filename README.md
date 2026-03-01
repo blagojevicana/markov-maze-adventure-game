@@ -2,6 +2,7 @@
 
 ### 1. Introduction
 
+This project demonstrates a simple adventure game where you want to collect reward and avoid traps. For this kind of game, multiple different mazes are needed. They can be designed by hand, but it is time consuming. An alternative is to randomly generate them, which doesn't seem like a good solution since we want mazes to make sense. The better solution is to design a few mazes by hand, and generate the rest using Markov's chains. Also, valide each generated maze with Breadth-first-search, so every maze is solvable.
 
 ### 2. Markov chains
 
