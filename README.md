@@ -23,7 +23,10 @@ nxt_probs contains the dictionary of probabilities for the next tile.
 random.choices(choices, probs)[0] samples the next tile according to the probabilities from the Markov chain.
 Mathematically, this is a stochastic process, where the state at time t+1 is randomly drawn according to P(next | current).
 
+We can look at the probabilities for every state, what will the Markov chain choose:
 
+![Figure_1](figures/Figure_1.png)
+![Figure_2](figures/Figure_2.png)
 
 ### 3. Breadth-first-search
 
@@ -42,8 +45,7 @@ The grid coordinates are adjusted to center the rectangles in each cell.
 
 ### 5. Player movement
 
-We calculate the new position.
+Player uses arrows on the keyboard to control the game. With that, we calculate the new position.
 If it’s a wall, movement is blocked.
 If the player reaches a treasure, the room advances (or game resets).
 If the player hits a trap, the room restarts.
-This connects arrow keys to movement. plt.show() starts the interactive plot window.
