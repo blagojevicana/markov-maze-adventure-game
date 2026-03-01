@@ -37,7 +37,7 @@ For each cell (x, y), we check its four neighbors. If a neighbor is inside the g
 If we reach the goal, the room is solvable. Otherwise, we return False.
 Mathematically, BFS is a graph traversal algorithm. Each cell is a node, each empty neighbor is an edge, and BFS ensures that if a path exists from start to goal, it will find it.
 
-![bfs](figures/bfs.gif)
+<img src="figures/bfs.gif" width="300" alt="bfs"/>
 
 ### 4. Draw the maze
 
