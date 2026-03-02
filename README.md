@@ -26,14 +26,13 @@ Markov chain will look at these learned probabilities, and based on them generat
 
 ### 3. Breadth-first-search
 
-BFS explores all reachable empty tiles from the start.
-visited keeps track of which cells we have already checked.
-q stores the frontier of cells to explore.
-For each cell (x, y), we check its four neighbors. If a neighbor is inside the grid, not visited, and not a wall, we add it to q.
-If we reach the goal, the room is solvable. Otherwise, we return False.
-Mathematically, BFS is a graph traversal algorithm. Each cell is a node, each empty neighbor is an edge, and BFS ensures that if a path exists from start to goal, it will find it.
+To make sure a generated maze is solvable, we will use BFS. BFS is an algorithm that will give us the shortest possible path to the target.
+BFS explores all reachable empty tiles from the start, and keeps track of which cells we have already checked, and which need to be checked next, in a queue.
+If we reach the goal, the maze is solvable. Otherwise, we return False.
 
 <img src="figures/bfs.gif" width="300" alt="bfs"/>
+
+Mathematically, BFS is a graph traversal algorithm. Each cell is a node, each empty neighbor is an edge, and BFS ensures that if a path exists from start to goal, it will find it.
 
 ### 4. Draw the maze
 
