@@ -2,7 +2,7 @@
 
 ### 1. Introduction
 
-This project demonstrates a simple adventure game where you want to collect reward and avoid traps. For this kind of game, multiple different mazes are needed. They can be designed by hand, but it is time consuming. An alternative is to randomly generate them, which doesn't seem like a good solution since we want mazes to make sense. The better solution is to design a few mazes by hand, and generate the rest using **Markov's chains**. Also, valide each generated maze with **Breadth-first-search** algorithm, so every maze is solvable.
+This project demonstrates a simple adventure game where you want to collect rewards and avoid traps. For this kind of game, multiple different mazes are needed. They can be designed by hand, but that is time consuming. An alternative is to randomly generate them, which doesn't seem like a good solution since we want mazes to make sense. The better solution is to design a few mazes by hand, and generate the rest using **Markov's chains**. Also, valide each generated maze with **Breadth-first-search** algorithm, so every maze is solvable.
 
 ![Media1](figures/Media1.gif)
 
@@ -10,23 +10,14 @@ This project demonstrates a simple adventure game where you want to collect rewa
 
 First, we will design a couple of maps to be the "training data" for the Markov chains. Each row is a sequence of 0s and 1s, representing empty spaces and walls. By providing a few examples, the Markov chain can learn local patterns, like how often walls follow other walls or empty spaces.
 
-Mathematically, the Markov chain assumes the probability of the next cell depends only on the current cell (first-order Markov property). We are using the simplest form: P(next_tile | current_tile).
-Here’s what happens:
-We initialize chain as a nested dictionary: chain[prev][next] counts how many times a given state next follows prev in the examples.
-For every sequence (row or column), we iterate through each pair of adjacent tiles. prev is the current tile, nxt is the next tile, and we increment the count.
-After counting, we normalize the counts to probabilities: each next tile probability is divided by the total number of times prev appeared. This ensures the probabilities sum to 1:
-This normalization is crucial for sampling with random.choices later.
+Mathematically, the Markov chain assumes the probability of the next cell depends only on the current cell (first-order Markov property). We are using the simplest form: P(next_tile | current_tile). We get these probabilities by just counting how often empty cell follows a wall, vertically and horizontally.
 
-Next, we define a function to generate a sequence of tiles using the Markov chain:We start with a 0 (empty tile) for simplicity.
-For each new tile, we look at the previous tile prev.
-nxt_probs contains the dictionary of probabilities for the next tile.
-random.choices(choices, probs)[0] samples the next tile according to the probabilities from the Markov chain.
-Mathematically, this is a stochastic process, where the state at time t+1 is randomly drawn according to P(next | current).
-
-We can look at the probabilities for every state, what will the Markov chain choose:
+We can look at the probabilities for every state:
 
 ![Figure_1](figures/Figure_1.png)
 ![Figure_2](figures/Figure_2.png)
+
+Markov chain will look at these learned probabilities, and based on them generate new maps.
 
 ### 3. Breadth-first-search
 
