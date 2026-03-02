@@ -2,9 +2,14 @@
 
 ### 1. Introduction
 
+The approach detailed here was used in the game SCANLINE, a tilemap-based level 2D game.
+
 This project demonstrates a simple adventure game where you want to collect rewards and avoid traps. For this kind of game, multiple different mazes are needed. They can be designed by hand, but that is time consuming. An alternative is to randomly generate them, which doesn't seem like a good solution since we want mazes to make sense. The better solution is to design a few mazes by hand, and generate the rest using **Markov's chains**. Also, valide each generated maze with **Breadth-first-search** algorithm, so every maze is solvable.
 
 ![Media1](figures/Media1.gif)
+
+The result is that we end up with interesting variations of maps — changing the feel of the generated map doesn't require any changes to code, only to that of the input.
+The maps strike a good balance between randomly generated and handcrafted. That is they feel both organic and structured but, due to randomness, each is different enough to the other to provide something unique.
 
 ### 2. Markov chains
 
