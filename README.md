@@ -31,6 +31,7 @@ BFS explores all reachable empty tiles from the start, and keeps track of which 
 If we reach the goal, the maze is solvable. Otherwise, we return False.
 
 <img src="figures/bfs.gif" width="300" alt="bfs"/>
+<img src="figures/bfs_algorithm.jpg" width="500" alt="bfs_algorithm"/>
 
 Mathematically, BFS is a graph traversal algorithm. Each cell is a node, each empty neighbor is an edge, and BFS ensures that if a path exists from start to goal, it will find it.
 
